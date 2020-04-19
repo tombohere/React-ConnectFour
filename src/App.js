@@ -92,6 +92,9 @@ const Board = () => {
             temp.gameOver = true;
             temp.playerWin = temp.player1 ? 1 : 2;
           } else {
+            if (temp.count === 42) {
+              temp.gameOver = true;
+            }
             temp.player1 = !temp.player1;
           }
           setGame(temp);
@@ -163,7 +166,13 @@ const Board = () => {
       {game.gameOver ? (
         <div className="board-message-container" onClick={restartGame}>
           <div className="board-message">
-            {game.player1 ? "RED" : "YELLOW"}
+            {game.player1
+              ? game.playerWin === 0
+                ? "NOBODY"
+                : "RED"
+              : game.playerWin === 0
+              ? "NOBODY"
+              : "YELLOW"}
             <br />
             WINS
           </div>
