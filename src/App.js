@@ -36,10 +36,15 @@ const Board = () => {
     function handleResize() {
       let game = document.getElementById("board").style;
       let info = document.getElementById("board-info").style;
+      let [top] = document.getElementsByClassName("top-circle");
+      let msgs = document.getElementsByClassName("board-message");
       let units = window.innerWidth > window.innerHeight ? "vh" : "vw";
       info.fontSize = "10" + units;
       game.height = game.width = "96" + units;
       game.fontSize = "10.34" + units;
+      top.style.fontSize = "6" + units;
+      top.style.lineHeight = "10" + units;
+      for (let msg of msgs) msg.style.fontSize = "20" + units;
     }
     handleResize();
     window.addEventListener("resize", handleResize);
