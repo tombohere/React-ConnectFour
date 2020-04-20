@@ -127,9 +127,7 @@ const Board = () => {
           <div className="board-title-area">
             <div />
             <div className="board-position">
-              <div className={"board-circle top-circle" + circleClass()}>
-                {game.circleMsg}
-              </div>
+              <div className={"board-circle top-circle" + circleClass()} />
             </div>
             <div id="board-info">CONNECT 4</div>
           </div>
