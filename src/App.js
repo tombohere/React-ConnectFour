@@ -8,26 +8,6 @@ const App = () => (
   </div>
 );
 
-const makeBoard = () => {
-  let board = new Array(7);
-  for (let i = 0; i < board.length; i++) {
-    board[i] = [];
-    for (let j = 0; j < 6; j++) {
-      board[i].push(0);
-    }
-  }
-
-  return {
-    board,
-    gameStarted: false,
-    playerSelected: false,
-    player1: true,
-    count: 0,
-    gameOver: false,
-    playerWin: 0
-  };
-};
-
 const Board = () => {
   const [game, setGame] = useState(makeBoard());
 
@@ -49,6 +29,25 @@ const Board = () => {
     handleResize();
     window.addEventListener("resize", handleResize);
   }, []);
+
+  function makeBoard() {
+    let board = new Array(7);
+    for (let i = 0; i < board.length; i++) {
+      board[i] = [];
+      for (let j = 0; j < 6; j++) {
+        board[i].push(0);
+      }
+    }
+    return {
+      board,
+      gameStarted: false,
+      playerSelected: false,
+      player1: true,
+      count: 0,
+      gameOver: false,
+      playerWin: 0
+    };
+  }
 
   const startGame = () => {
     setGame({ ...game, gameStarted: true });
