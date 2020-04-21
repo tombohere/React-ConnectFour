@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import _ from "lodash";
 import "./styles.css";
 
 const App = () => (
@@ -139,10 +138,10 @@ const Board = () => {
           </div>
           <div className="board-game-area">
             <div />
-            {_.times(7, i => (
+            {[0, 1, 2, 3, 4, 5, 6].map(i => (
               <div className="board-column" key={i} onClick={() => colClick(i)}>
                 <div className="board-column-container">
-                  {_.times(6, j => (
+                  {[0, 1, 2, 3, 4, 5].map(j => (
                     <div className="board-position" key={j}>
                       <div
                         className={
